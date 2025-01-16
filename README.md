@@ -19,7 +19,7 @@
 
 1. Клонирование репозитория:
 ```bash
-
+git clone https://github.com/VictorGritskoff/Cinema-Servlets-Web.git
 cd Cinema-Innowise
 ```
 
