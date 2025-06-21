@@ -1,10 +1,10 @@
 version: '3.8'
 
 services:
-  webapp:
+  webapp1:
     build: .
     ports:
-      - "8080:8080"
+      - "8081:8080"
     depends_on:
       - db
     environment:
@@ -12,9 +12,37 @@ services:
       - MYSQL_USER=cinema_user
       - MYSQL_PASSWORD=cinema_password
       - MYSQL_DATABASE=cinema_db
+      - SERVER_NAME=server1
+
+  webapp2:
+    build: .
+    ports:
+      - "8082:8080"
+    depends_on:
+      - db
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_USER=cinema_user
+      - MYSQL_PASSWORD=cinema_password
+      - MYSQL_DATABASE=cinema_db
+      - SERVER_NAME=server2
+
+
+  webapp3:
+    build: .
+    ports:
+      - "8083:8080"
+    depends_on:
+      - db
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_USER=cinema_user
+      - MYSQL_PASSWORD=cinema_password
+      - MYSQL_DATABASE=cinema_db
+      - SERVER_NAME=server3
 
   db:
-    image: mysql:8.0
+    image: mysql:8
     ports:
       - "3307:3306"
     environment:
